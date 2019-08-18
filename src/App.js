@@ -1,9 +1,9 @@
 import React from 'react';
-import Login from './modules/Login';
+import Layout from './components/Layout';
 
 function App() {
   return (
-    <Login />
+    <Layout />
   );
 }
 

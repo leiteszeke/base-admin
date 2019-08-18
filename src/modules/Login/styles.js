@@ -28,7 +28,7 @@ export const LoginLogo = styled.div`
 
 export const Card = styled.div`
     box-shadow: 0 0 1px rgba(0,0,0,.125), 0 1px 3px rgba(0,0,0,.2);
-    margin-bottom: 1rem;
+    margin-bottom: 16px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -37,7 +37,7 @@ export const Card = styled.div`
     background-color: #fff;
     background-clip: border-box;
     border: 0 solid rgba(0,0,0,.125);
-    border-radius: .25rem;
+    border-radius: 4px;
 `;
 
 export const CardBody = styled.div`
@@ -55,7 +55,7 @@ export const CardBody = styled.div`
 `;
 
 export const InputContainer = styled.div`
-    margin-bottom: 1rem;
+    margin-bottom: 16px;
     position: relative;
     display: flex;
     flex-wrap: wrap;
@@ -64,14 +64,14 @@ export const InputContainer = styled.div`
 
     input {
         border-right: 0;
-        border-radius: .25rem 0 0 .25rem;
+        border-radius: 4px 0 0 4px;
         position: relative;
         flex: 1 1 auto;
         width: 1%;
         margin-bottom: 0;
         display: block;
         padding: .375rem .75rem;
-        font-size: 1rem;
+        font-size: 16px;
         font-weight: 400;
         line-height: 1.5;
         color: #495057;
@@ -97,13 +97,13 @@ export const InputAppend = styled.div`
         align-items: center;
         padding: .375rem .75rem;
         margin-bottom: 0;
-        font-size: 1rem;
+        font-size: 16px;
         font-weight: 400;
         line-height: 1.5;
         text-align: center;
         white-space: nowrap;
         border: 1px solid #ced4da;
-        border-radius: 0 .25rem .25rem 0;
+        border-radius: 0 4px 4px 0;
     }
 `;
 
@@ -122,7 +122,7 @@ export const FormFooter = styled.div`
         user-select: none;
         border: 1px solid transparent;
         padding: .375rem .75rem;
-        font-size: 1rem;
+        font-size: 16px;
         line-height: 1.5;
         transition: color .15s;
     }
