@@ -1,0 +1,136 @@
+[
+  {
+    "name": "Seguimiento",
+    "type": "label"
+  },
+  {
+    "name": "Cercasalud",
+    "icon": "fas fa-home",
+    "url": "#",
+    "opened": false,
+    "subitems": [
+      {
+        "name": "Recibidos",
+        "url": "/cercasalud/recibidos",
+        "icon": "far fa-circle",
+        "active": false
+      },
+      {
+        "name": "Seguimiento",
+        "url": "/cercasalud/seguimiento",
+        "icon": "far fa-circle",
+        "active": false
+      },
+      {
+        "name": "Arreglar",
+        "url": "/cercasalud/arreglar",
+        "icon": "far fa-circle",
+        "active": false
+      }
+    ]
+  },
+  {
+    "name": "Domisalud",
+    "icon": "fas fa-home",
+    "url": "#",
+    "opened": false,
+    "subitems": [
+      {
+        "name": "Recibidos",
+        "url": "/domisalud/recibidos",
+        "icon": "far fa-circle",
+        "active": false
+      },
+      {
+        "name": "Seguimiento",
+        "url": "/domisalud/seguimiento",
+        "icon": "far fa-circle",
+        "active": false
+      },
+      {
+        "name": "Arreglar",
+        "url": "/domisalud/arreglar",
+        "icon": "far fa-circle",
+        "active": false
+      }
+    ]
+  },
+  {
+    "name": "Intergemed",
+    "icon": "fas fa-home",
+    "url": "#",
+    "opened": false,
+    "subitems": [
+      {
+        "name": "Recibidos",
+        "url": "/intergemed/recibidos",
+        "icon": "far fa-circle",
+        "active": false
+      },
+      {
+        "name": "Seguimiento",
+        "url": "/intergemed/seguimiento",
+        "icon": "far fa-circle",
+        "active": false
+      },
+      {
+        "name": "Arreglar",
+        "url": "/intergemed/arreglar",
+        "icon": "far fa-circle",
+        "active": false
+      }
+    ]
+  },
+  {
+    "name": "Juntos en Casa",
+    "icon": "fas fa-home",
+    "url": "#",
+    "opened": false,
+    "subitems": [
+      {
+        "name": "Recibidos",
+        "url": "/juntos/recibidos",
+        "icon": "far fa-circle",
+        "active": false
+      },
+      {
+        "name": "Seguimiento",
+        "url": "/juntos/seguimiento",
+        "icon": "far fa-circle",
+        "active": false
+      },
+      {
+        "name": "Arreglar",
+        "url": "/juntos/arreglar",
+        "icon": "far fa-circle",
+        "active": false
+      }
+    ]
+  },
+  {
+    "name": "Sistemas Operativos Salud",
+    "icon": "fas fa-home",
+    "url": "#",
+    "opened": false,
+    "subitems": [
+      {
+        "name": "Recibidos",
+        "url": "/sistemas/recibidos",
+        "icon": "far fa-circle",
+        "active": false
+      },
+      {
+        "name": "Seguimiento",
+        "url": "/sistemas/seguimiento",
+        "icon": "far fa-circle",
+        "active": false
+      },
+      {
+        "name": "Arreglar",
+        "url": "/sistemas/arreglar",
+        "icon": "far fa-circle",
+        "active": false
+      }
+    ]
+  }
+]

@@ -1,0 +1,40 @@
+[
+  {
+    "name": "Consultas Médicas",
+    "type": "label"
+  },
+  {
+    "name": "Internaciones",
+    "icon": "fas fa-user-md",
+    "url": "#",
+    "opened": false,
+    "subitems": [
+      {
+        "name": "Pacientes",
+        "url": "/consultas/pacientes",
+        "icon": "far fa-circle",
+        "active": false
+      },
+      {
+        "name": "Solicitudes de Internación",
+        "url": "/consultas/solicitudes",
+        "icon": "far fa-circle",
+        "active": false
+      }
+    ]
+  },
+  {
+    "name": "Prestadores",
+    "icon": "fas fa-user-md",
+    "url": "#",
+    "opened": false,
+    "subitems": [
+      {
+        "name": "Listar Prestadores",
+        "url": "/prestadores",
+        "icon": "far fa-circle",
+        "active": false
+      }
+    ]
+  }
+]

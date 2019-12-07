@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Trámites",
+    "type": "label"
+  },
+  {
+    "name": "Trámites",
+    "icon": "fas fa-user-md",
+    "url": "#",
+    "opened": false,
+    "subitems": [
+      {
+        "name": "Cargar Trámite",
+        "url": "/tramites/cargar",
+        "icon": "far fa-circle",
+        "active": false
+      },
+      {
+        "name": "Listar Trámites",
+        "url": "/tramites/listar",
+        "icon": "far fa-circle",
+        "active": false
+      }
+    ]
+  }
+]

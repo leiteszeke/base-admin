@@ -1,0 +1,86 @@
+[
+  {
+    "name": "Webmaster",
+    "type": "label"
+  },
+  {
+    "name": "Prestaciones",
+    "icon": "fas fa-home",
+    "url": "#",
+    "opened": false,
+    "subitems": [
+      {
+        "name": "Crear Prestación",
+        "url": "/prestaciones/crear",
+        "icon": "far fa-circle",
+        "active": false
+      },
+      {
+        "name": "Listar Prestaciones",
+        "url": "/prestaciones/listar",
+        "icon": "far fa-circle",
+        "active": false
+      }
+    ]
+  },
+  {
+    "name": "Sectores",
+    "icon": "fas fa-home",
+    "url": "#",
+    "opened": false,
+    "subitems": [
+      {
+        "name": "Crear Sector",
+        "url": "/sectores/crear",
+        "icon": "far fa-circle",
+        "active": false
+      },
+      {
+        "name": "Listar Sectores",
+        "url": "/sectores/listar",
+        "icon": "far fa-circle",
+        "active": false
+      }
+    ]
+  },
+  {
+    "name": "Tipos de Archivos",
+    "icon": "fas fa-file",
+    "url": "#",
+    "opened": false,
+    "subitems": [
+      {
+        "name": "Crear Tipo de Archivo",
+        "url": "/tipos-archivos/crear",
+        "icon": "far fa-circle",
+        "active": false
+      },
+      {
+        "name": "Listar Tipos de Archivo",
+        "url": "/tipos-archivos/listar",
+        "icon": "far fa-circle",
+        "active": false
+      }
+    ]
+  },
+  {
+    "name": "Usuarios",
+    "icon": "fas fa-users",
+    "url": "#",
+    "opened": false,
+    "subitems": [
+      {
+        "name": "Crear Usuario",
+        "url": "/usuarios/crear",
+        "icon": "far fa-circle",
+        "active": false
+      },
+      {
+        "name": "Listar Usuarios",
+        "url": "/usuarios/listar",
+        "icon": "far fa-circle",
+        "active": false
+      }
+    ]
+  }
+]

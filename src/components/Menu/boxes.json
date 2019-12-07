@@ -1,0 +1,46 @@
+[
+  {
+    "name": "Cajas Administrativas",
+    "type": "label"
+  },
+  {
+    "name": "Archivos",
+    "icon": "fas fa-file-o",
+    "url": "#",
+    "opened": false,
+    "subitems": [
+      {
+        "name": "Crear Archivo",
+        "url": "/archivos/crear",
+        "icon": "far fa-circle",
+        "active": false
+      },
+      {
+        "name": "Listar Archivos",
+        "url": "/archivos/listar",
+        "icon": "far fa-circle",
+        "active": false
+      }
+    ]
+  },
+  {
+    "name": "Cajas",
+    "icon": "fas fa-archive",
+    "url": "#",
+    "opened": false,
+    "subitems": [
+      {
+        "name": "Crear Caja",
+        "url": "/cajas/crear",
+        "icon": "far fa-circle",
+        "active": false
+      },
+      {
+        "name": "Listar Cajas",
+        "url": "/cajas/listar",
+        "icon": "far fa-circle",
+        "active": false
+      }
+    ]
+  }
+]

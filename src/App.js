@@ -1,26 +1,47 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
+import PropTypes from 'prop-types';
+// Modules
+import Login from './modules/Login';
+import Home from './modules/Home';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const history = createBrowserHistory();
+
+if (process.env.NODE_ENV !== 'production') {
+  const whyDidYouRender = require('@welldone-software/why-did-you-render');
+  whyDidYouRender(React);
 }
+
+const PrivateRoute = ({ component: Component, ...props }) => (
+  <Route
+    {...props}
+    render={renderProps =>
+      localStorage.getItem('base-admin') ? (
+        <Component {...renderProps} />
+      ) : (
+        <Redirect
+          to={{
+            pathname: '/login',
+            state: { from: renderProps.location }
+          }}
+        />
+      )
+    }
+  />
+);
+
+PrivateRoute.propTypes = {
+  component: PropTypes.func
+};
+
+const App = () => (
+  <BrowserRouter>
+    <Switch history={history}>
+      <Route exact path="/login" component={Login} />
+      <PrivateRoute exact path="/" component={Home} />
+    </Switch>
+  </BrowserRouter>
+);
 
 export default App;

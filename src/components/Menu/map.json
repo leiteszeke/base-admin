@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Mapa",
+    "type": "label"
+  },
+  {
+    "name": "Pacientes",
+    "icon": "fas fa-map",
+    "url": "#",
+    "opened": false,
+    "subitems": [
+      {
+        "name": "Ver en Mapa",
+        "url": "/mapas/pacientes",
+        "icon": "far fa-circle",
+        "active": false
+      },
+      {
+        "name": "Direcciones",
+        "url": "/mapas/direcciones",
+        "icon": "far fa-circle",
+        "active": false
+      }
+    ]
+  }
+]

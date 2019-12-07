@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Soporte",
+    "type": "label"
+  },
+  {
+    "name": "Tickets",
+    "icon": "fas fa-ticket-alt",
+    "url": "#",
+    "opened": false,
+    "subitems": [
+      {
+        "name": "Abrir Ticket",
+        "url": "/tickets/nuevo",
+        "icon": "far fa-circle",
+        "active": false
+      },
+      {
+        "name": "Tickets Abiertos",
+        "url": "/tickets/abiertos",
+        "icon": "far fa-circle",
+        "active": false
+      },
+      {
+        "name": "Tickets Cerrados",
+        "url": "/tickets/cerrados",
+        "icon": "far fa-circle",
+        "active": false
+      }
+    ]
+  }
+]
