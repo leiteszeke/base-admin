@@ -1,0 +1,153 @@
+// Here you can add other styles
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+.header {
+  height: 113px;
+
+  @media (max-width: 767.98px) {
+    height: 126px;
+  }
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.body {
+  height: calc(100% - 137px);
+
+  .container-lg {
+    height: 100%;
+  }
+
+  .container {
+    max-width: 100%;
+  }
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.flex {
+  display: flex;
+  flex: 1;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.w-auto {
+  width: auto;
+}
+
+.leaflet-container {
+  z-index: 0;
+}
+
+$multiplier: 4;
+$sizes: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10;
+
+@each $size in $sizes {
+  .m-#{$size} {
+    margin: #{$size * $multiplier}px;
+  }
+
+  .mx-#{$size} {
+    margin-left: #{$size * $multiplier}px;
+    margin-right: #{$size * $multiplier}px;
+  }
+  .my-#{$size} {
+    margin-top: #{$size * $multiplier}px;
+    margin-bottom: #{$size * $multiplier}px;
+  }
+
+  .ml-#{$size} {
+    margin-left: #{$size * $multiplier}px;
+  }
+
+  .mt-#{$size} {
+    margin-top: #{$size * $multiplier}px;
+  }
+
+  .mr-#{$size} {
+    margin-right: #{$size * $multiplier}px;
+  }
+
+  .mb-#{$size} {
+    margin-bottom: #{$size * $multiplier}px;
+  }
+
+  .p-#{$size} {
+    margin: #{$size * $multiplier}px;
+  }
+
+  .px-#{$size} {
+    padding-left: #{$size * $multiplier}px;
+    padding-right: #{$size * $multiplier}px;
+  }
+  .py-#{$size} {
+    padding-top: #{$size * $multiplier}px;
+    padding-bottom: #{$size * $multiplier}px;
+  }
+
+  .pl-#{$size} {
+    padding-left: #{$size * $multiplier}px;
+  }
+
+  .pt-#{$size} {
+    padding-top: #{$size * $multiplier}px;
+  }
+
+  .pr-#{$size} {
+    padding-right: #{$size * $multiplier}px;
+  }
+
+  .pb-#{$size} {
+    padding-bottom: #{$size * $multiplier}px;
+  }
+
+  .h-#{$size} {
+    height: #{$size * $multiplier}px;
+  }
+
+  .w-#{$size} {
+    width: #{$size * $multiplier}px;
+  }
+
+  .font-#{$size} {
+    font-size: #{$size * $multiplier}px;
+  }
+
+  .line-#{$size} {
+    line-height: #{$size * $multiplier + $multiplier}px;
+  }
+}
+
+
+$colors: 'danger', 'warning', 'success';
+
+@each $color in $colors {
+  .btn-#{$color} {
+    --cui-btn-color: #{$white};
+    --cui-btn-active-color: #{$white};
+    --cui-btn-disabled-color: #{$white};
+    --cui-btn-hover-color: #{$white};
+  }
+}
+
+:root {
+  --cui-sidebar-bg: #121212;
+}
