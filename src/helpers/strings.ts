@@ -1,5 +1,20 @@
-import { map } from "lodash";
+import { camelCase, startCase } from "lodash";
 import { Generic } from "src/types";
+
+export const singularOrPlural = (
+  value: number,
+  singular: string,
+  plural: string
+) => {
+  if (value === 1) {
+    return singular;
+  }
+
+  return plural;
+};
+
+export const pascalCase = (str: string) =>
+  startCase(camelCase(str)).replace(/ /g, "");
 
 export const routeParser = (route: string, entries: any) => {
   const regex = /:\w+/g;
@@ -17,12 +32,16 @@ export const routeParser = (route: string, entries: any) => {
   }, route);
 };
 
-export const objectToQueryString = (input: Generic) => {
-  return map(input, (value: string, key: string) => {
-    if (value.toString().trim() === "") {
-      return "";
+export const objectToQueryString = (input: Generic<string>) => {
+  Object.entries(input).forEach(([key, value]) => {
+    if (value === "") {
+      delete input[key];
     }
+  });
 
-    return `${key}=${value}`;
-  }).join("&");
+  const searchParams = new URLSearchParams(input);
+
+  const queryString = searchParams.toString();
+
+  return queryString;
 };

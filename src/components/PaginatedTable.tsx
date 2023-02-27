@@ -51,10 +51,12 @@ function PaginatedTable<I = Item>({
   withSearch = false,
 }: PaginatedTableProps<I>) {
   const navigate = useNavigate();
-  const { page, pageChange, resetAndSearch } = usePagination(route);
-  const { data: response, loading } = useQuery<
-    WithMeta<I> | BasicResponse<I[]>
-  >(apiFunction);
+  const {
+    data: response,
+    loading,
+    refetch,
+  } = useQuery<WithMeta<I> | BasicResponse<I[]>>(apiFunction);
+  const { page, pageChange, resetAndSearch } = usePagination(route, refetch);
 
   const emptyValues = useMemo(() => {
     if (loading) {

@@ -12,7 +12,10 @@ type PaginationProps = {
   resetAndSearch: (values: Generic) => void;
 };
 
-export const usePagination = (route: string): PaginationProps => {
+export const usePagination = (
+  route: string,
+  refetch?: ({ filters }: { filters: Generic }) => void
+): PaginationProps => {
   const navigate = useNavigate();
   const queryPage = useLocation().search.match(/page=([0-9]+)/);
   const currentPage = Number(queryPage && queryPage[1] ? queryPage[1] : 1);
@@ -20,16 +23,35 @@ export const usePagination = (route: string): PaginationProps => {
   const [params, setParams] = useState<Generic>();
 
   const pageChange = (newPage: number) => {
-    currentPage !== newPage && navigate(`/${route}?page=${newPage}`);
+    const inputString = queryPage?.input ?? "";
+
+    const regexPattern = /\?page=\d+(?=&|\b)/;
+    const replacementString = `?page=${newPage}`;
+    const newQueryString = inputString.replace(regexPattern, replacementString);
+
+    currentPage !== newPage && navigate(`/${route}${newQueryString}`);
+
+    const searchParams = new URLSearchParams(newQueryString);
+    const queryObject = Object.fromEntries(searchParams.entries());
+
+    resetAndSearch(queryObject);
   };
 
   const resetAndSearch = (values: Generic) => {
+    const newPage = values.page ? Number(values.page) : 1;
     const queryString = objectToQueryString({
-      page: 1,
       ...values,
+      page: newPage.toString(),
     });
     setParams(values);
     navigate(`/${route}?${queryString}`);
+
+    refetch?.({
+      filters: {
+        ...values,
+        page: newPage,
+      },
+    });
   };
 
   useEffect(() => {

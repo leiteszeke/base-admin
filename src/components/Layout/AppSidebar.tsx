@@ -3,7 +3,7 @@ import { CSidebar, CSidebarBrand, CSidebarNav } from "@coreui/react-pro";
 import AppSidebarNav from "./AppSidebarNav";
 import CIcon from "@coreui/icons-react";
 import SimpleBar from "simplebar-react";
-import "simplebar/dist/simplebar.min.css";
+import "simplebar-react/dist/simplebar.min.css";
 import Logo from "src/assets/brand/logo";
 import navigation, { bottomNavigation } from "src/_nav";
 import { useAdminStore } from "src/store";
