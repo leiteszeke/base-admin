@@ -1,7 +1,7 @@
 import { FormikErrors } from "formik";
 import * as yup from "yup";
 
-type FormikValue = string | Date | number | null;
+type FormikValue = string | Date | number | null | boolean;
 type FormikError = FormikErrors<any> | string;
 
 export const isValid = (value?: FormikValue, error?: FormikError) => {
@@ -39,6 +39,15 @@ yup.addMethod(yup.string, "numeric", function (message: string) {
     message,
     (value) => (value?.match(/^[1-9]\d*(\.\d+)?$/)?.length ?? 0) >= 0 ?? false
   );
+});
+
+yup.addMethod(yup.string, "dniOrCuit", function (message: string) {
+  return this.test("dniOrCuit", message, (value) => {
+    const matchDni = (value?.match(/^[0-9]{7,8}$/)?.length ?? 0) > 0;
+    const matchCuit = (value?.match(/^[0-9]{10,11}$/)?.length ?? 0) > 0;
+
+    return matchDni || matchCuit;
+  });
 });
 
 yup.addMethod(yup.date, "afterThan", function (ref, message) {

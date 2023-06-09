@@ -1,12 +1,9 @@
 import Mixpanel, { OverridedMixpanel } from "mixpanel-browser";
 
 import { MutableRefObject } from "react";
+import Config from "src/config";
 import { AdminStore } from "src/store";
 import { AppVersion, EventKey, Generic, MixPanel, User } from "src/types";
-
-const useMixpanelAnalytics =
-  process.env.REACT_APP_USE_MIXPANEL_ANALYITCS ?? false;
-const mixpanelToken = process.env.REACT_APP_MIXPANEL_TOKEN ?? "";
 
 type UserData = Pick<User, "id" | "name" | "email" | "lastname">;
 
@@ -33,7 +30,7 @@ const getUserData = (user?: User | null) => {
   }
 
   const extraProps = {
-    env: process.env.NODE_ENV,
+    env: Config.env,
     currentVersion: deviceData.currentVersion,
     OS: deviceData.deviceMeta.OS,
     appVersion: AppVersion,
@@ -48,41 +45,42 @@ const getUserData = (user?: User | null) => {
 export const initAnalytics = (user?: User, _?: MutableRefObject<MixPanel>) => {
   const { userProps, extraProps } = getUserData(user);
 
-  if (useMixpanelAnalytics && mixpanelToken) {
+  if (Config.useMixpanelAnalytics && Config.mixpanelToken) {
     const peopleConfig = {
       ...userProps,
       ...extraProps,
     };
 
-    Mixpanel?.init(mixpanelToken);
+    Mixpanel?.init(Config.mixpanelToken);
 
     if (peopleConfig.id) {
-      Mixpanel?.identify(peopleConfig.id);
+      Mixpanel?.identify(peopleConfig.id.toString());
     }
 
     Mixpanel?.register(peopleConfig);
   }
 };
 
-export const logEvent = (eventName: string, eventData: Generic) => {
+export const logEvent = (eventName: string, eventData?: Generic) => {
   mixpanelEvent(eventName, eventData);
 };
 
-export const logScreenView = async (screenName: string) => {
-  mixpanelEvent(EventKey.ScreenView, { screenName });
+export const logScreenView = async (
+  screenName: string,
+  restProps?: Generic
+) => {
+  mixpanelEvent(EventKey.ScreenView, { screenName, ...restProps });
 };
 
 export const mixpanelEvent = (eventName: string, props?: Generic) => {
-  if (useMixpanelAnalytics) {
+  if (Config.useMixpanelAnalytics) {
     initAnalytics();
     Mixpanel?.track(eventName, props);
   }
 };
 
-export const clearMixpanel = (
-  _: MutableRefObject<OverridedMixpanel | undefined>
-) => {
-  if (useMixpanelAnalytics) {
+export const clearMixpanel = (_: MutableRefObject<OverridedMixpanel>) => {
+  if (Config.useMixpanelAnalytics) {
     initAnalytics();
     Mixpanel?.reset();
   }

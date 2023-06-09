@@ -1,19 +1,27 @@
-import { lazy, Suspense, useEffect } from "react";
-import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
+import { Suspense, useEffect } from "react";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import "./scss/style.scss";
-import { useAdminStore } from "./store";
-import { newGraphQLClient } from "./client";
+import { useAdminStore } from "src/store";
+import { newGraphQLClient } from "src/services/graphql";
 import { ApolloProvider } from "@apollo/client";
-import AppLoader from "./components/Loader";
 
-const Layout = lazy(() => import("./components/Layout/Layout"));
-const Login = lazy(() => import("./pages/login/Login"));
+import SocketProvider from "src/contexts/Socket";
+import Login from "src/pages/login/Login";
+import Layout from "src/components/Layout/Layout";
+
+const loading = (
+  <div className="pt-3 text-center">
+    <div className="sk-spinner sk-spinner-pulse"></div>
+  </div>
+);
 
 const Logout = () => {
   const { resetStore } = useAdminStore();
 
   useEffect(() => {
     resetStore();
+
+    window.location.href = "/";
   }, [resetStore]);
 
   return null;
@@ -27,10 +35,12 @@ const App = () => {
     return (
       <ApolloProvider client={GraphQLClient}>
         <HashRouter>
-          <Suspense fallback={<AppLoader />}>
+          <Suspense fallback={loading}>
             <Routes>
+              <Route path="/" element={<Login />} />
+              <Route path="/logout" element={<Logout />} />
               <Route path="/login" element={<Login />} />
-              <Route path="*" element={<Navigate to="/login" />} />
+              <Route path="*" element={<Logout />} />
             </Routes>
           </Suspense>
         </HashRouter>
@@ -40,14 +50,16 @@ const App = () => {
 
   return (
     <ApolloProvider client={GraphQLClient}>
-      <HashRouter>
-        <Suspense fallback={<AppLoader />}>
-          <Routes>
-            <Route path="/logout" element={<Logout />} />
-            <Route path="*" element={<Layout />} />
-          </Routes>
-        </Suspense>
-      </HashRouter>
+      <SocketProvider user={user}>
+        <HashRouter>
+          <Suspense fallback={loading}>
+            <Routes>
+              <Route path="/logout" element={<Logout />} />
+              <Route path="*" element={<Layout />} />
+            </Routes>
+          </Suspense>
+        </HashRouter>
+      </SocketProvider>
     </ApolloProvider>
   );
 };

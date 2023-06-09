@@ -40,7 +40,7 @@ export const AnalyticsProvider = ({ children }: PropsWithChildren<{}>) => {
 
     return () => {
       if (mixpanelRef) {
-        clearMixpanel(mixpanelRef);
+        clearMixpanel(mixpanelRef as MutableRefObject<MixPanel>);
       }
     };
   }, [init]);

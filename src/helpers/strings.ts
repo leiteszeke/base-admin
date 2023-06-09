@@ -15,7 +15,6 @@ export const singularOrPlural = (
 
 export const pascalCase = (str: string) =>
   startCase(camelCase(str)).replace(/ /g, "");
-
 export const routeParser = (route: string, entries: any) => {
   const regex = /:\w+/g;
   const match = route.match(regex);
@@ -44,4 +43,10 @@ export const objectToQueryString = (input: Generic<string>) => {
   const queryString = searchParams.toString();
 
   return queryString;
+};
+
+export const queryStringToObject = (queryString: string) => {
+  const searchParams = new URLSearchParams(queryString);
+
+  return Object.fromEntries(searchParams.entries());
 };

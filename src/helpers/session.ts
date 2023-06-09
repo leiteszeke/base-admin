@@ -1,7 +1,7 @@
-const { REACT_APP_SESSION_KEY: SESSION_KEY } = process.env;
+import Config from "src/config";
 
 export const getSession = () => {
-  const session = localStorage.getItem(SESSION_KEY ?? "");
+  const session = localStorage.getItem(Config.sessionKey);
   const sessionUser =
     session !== "undefined" && session !== null ? JSON.parse(session) : null;
 
@@ -9,9 +9,9 @@ export const getSession = () => {
 };
 
 export const setSession = (data: unknown) => {
-  localStorage.setItem(SESSION_KEY ?? "", JSON.stringify(data));
+  localStorage.setItem(Config.sessionKey, JSON.stringify(data));
 };
 
 export const removeSession = () => {
-  localStorage.removeItem(SESSION_KEY ?? "");
+  localStorage.removeItem(Config.sessionKey);
 };

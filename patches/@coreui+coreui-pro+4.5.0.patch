@@ -1,5 +1,5 @@
 diff --git a/node_modules/@coreui/coreui-pro/scss/_functions.scss b/node_modules/@coreui/coreui-pro/scss/_functions.scss
-index 7237be3..3445643 100644
+index ac8b52a..d83cbbc 100644
 --- a/node_modules/@coreui/coreui-pro/scss/_functions.scss
 +++ b/node_modules/@coreui/coreui-pro/scss/_functions.scss
 @@ -204,12 +204,12 @@ $_luminance-list: .0008 .001 .0011 .0013 .0015 .0017 .002 .0022 .0025 .0027 .003
@@ -7,13 +7,13 @@ index 7237be3..3445643 100644
  // Tint a color: mix a color with white
  @function tint-color($color, $weight) {
 -  @return mix(white, $color, $weight);
-+  @return mix(white, $color, $weight * 1%);
++  @return mix(white, $color, calc($weight / 1% / 1% * 1%));
  }
  
  // Shade a color: mix a color with black
  @function shade-color($color, $weight) {
 -  @return mix(black, $color, $weight);
-+  @return mix(black, $color, $weight * 1%);
++  @return mix(black, $color, calc($weight / 1% / 1% * 1%));
  }
  
  // Shade the color if the weight is positive, else tint it
