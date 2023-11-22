@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 const parseEmptyString = (value: string | undefined): string => {
   if (!value) {
     return "";
