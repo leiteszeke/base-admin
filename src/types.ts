@@ -24,6 +24,10 @@ export type WithDirty<T> = T & {
   dirty?: boolean;
 };
 
+export type BasicResponse<T = unknown> = {
+  data: T;
+};
+
 export type WithMeta<T = unknown> = {
   data: T[];
   meta: {

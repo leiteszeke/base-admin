@@ -21,7 +21,7 @@ import { UserWithToken } from "src/types";
 
 const Login = () => {
   const { setUser } = useAdminStore();
-  const [mutation, { loading }] = useMutation(Api.Auth.LOGIN, {
+  const [, { loading }] = useMutation(Api.Auth.LOGIN, {
     onCompleted: (data: { user: UserWithToken }) => {
       setUser(data.user);
     },

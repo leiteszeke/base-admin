@@ -4,10 +4,6 @@ import {
   CSmartPagination,
   CSmartTable,
 } from "@coreui/react-pro";
-import {
-  Column,
-  Item,
-} from "@coreui/react-pro/dist/components/smart-table/CSmartTableInterface";
 import { useMemo } from "react";
 import { DocumentNode, useQuery } from "@apollo/client";
 import { To, useNavigate } from "react-router-dom";
@@ -15,6 +11,10 @@ import { routeParser } from "src/helpers/strings";
 import { usePagination } from "src/hooks/usePagination";
 import { BasicResponse, Generic, WithMeta } from "src/types";
 import SearchRow from "./SearchRow";
+import {
+  Column,
+  Item,
+} from "@coreui/react-pro/dist/components/smart-table/types";
 
 type EnrichedColumn = Column & {
   className?: string;

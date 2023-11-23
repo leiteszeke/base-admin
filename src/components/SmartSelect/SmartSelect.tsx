@@ -34,7 +34,7 @@ const SmartSelect = memo(
         filterOptions={
           search
             ? [
-                (items: SelectSearchOption[], q: string) => {
+                (items: SelectSearchOption[], _: string) => {
                   if (!search) {
                     return items;
                   }
