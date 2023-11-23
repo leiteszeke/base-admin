@@ -29,11 +29,22 @@ const Login = () => {
 
   const onSubmit = (data: LoginUser) => {
     if (!loading) {
-      mutation({
-        variables: {
-          user: data,
-        },
+      setUser({
+        id: 1,
+        isAdmin: true,
+        image: "https://picsum.photos/200/300",
+        name: "John",
+        lastname: "Doe",
+        email: data.email,
+        accessToken: "jwt-token",
+        createdAt: new Date(),
       });
+
+      // mutation({
+      //   variables: {
+      //     user: data,
+      //   },
+      // });
     }
   };
 

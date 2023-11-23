@@ -9,11 +9,11 @@ index ac8b52a..d83cbbc 100644
 -  @return mix(white, $color, $weight);
 +  @return mix(white, $color, calc($weight / 1% / 1% * 1%));
  }
- 
+
  // Shade a color: mix a color with black
  @function shade-color($color, $weight) {
 -  @return mix(black, $color, $weight);
 +  @return mix(black, $color, calc($weight / 1% / 1% * 1%));
  }
- 
+
  // Shade the color if the weight is positive, else tint it

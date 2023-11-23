@@ -3,8 +3,9 @@ import { setContext } from "@apollo/client/link/context";
 
 import { AdminStore } from "./store";
 import { UserWithToken } from "src/types";
+import Config from "./config";
 
-const link = new HttpLink({ uri: `${process.env.REACT_APP_API_URL}/graphql` });
+const link = new HttpLink({ uri: `${Config.apiUrl}/graphql` });
 
 const authLink = setContext((_, { headers }) => {
   const { user } = AdminStore.getState();

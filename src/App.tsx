@@ -1,6 +1,5 @@
 import { Suspense, useEffect } from "react";
 import { HashRouter, Route, Routes } from "react-router-dom";
-import "./scss/style.scss";
 import { useAdminStore } from "src/store";
 import { newGraphQLClient } from "src/services/graphql";
 import { ApolloProvider } from "@apollo/client";

@@ -3,10 +3,9 @@
 
 $enable-ltr: true; /* stylelint-disable-line scss/dollar-variable-default */
 $enable-rtl: true; /* stylelint-disable-line scss/dollar-variable-default */
-
 // Import styles
 @import "@coreui/coreui-pro/scss/coreui";
-@import "@coreui/coreui-pro/scss/themes/dark";
+
 
 @import "layout";
 

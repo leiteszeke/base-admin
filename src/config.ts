@@ -10,7 +10,7 @@ const parseString = (value: string | undefined): string => {
   return (value ?? "").toString();
 };
 
-const parseNumber = (value: string | undefined): number => {
+export const parseNumber = (value: string | undefined): number => {
   return Number(value ?? 0);
 };
 
