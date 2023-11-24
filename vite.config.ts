@@ -17,4 +17,7 @@ export default {
     port: 3000,
     hot: true,
   },
+  build: {
+    outDir: path.join(__dirname, "dist"),
+  },
 };
