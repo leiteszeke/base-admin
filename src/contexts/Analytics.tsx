@@ -6,13 +6,14 @@ import {
   useEffect,
   useRef,
 } from "react";
+import Config from "src/config";
 import { clearMixpanel, initAnalytics } from "src/helpers/analytics";
 
 import { AdminStore } from "src/store";
 import { MixPanel } from "src/types";
 
-const useMixpanelAnalytics = process.env.REACT_APP_USE_MIXPANEL_ANALYITCS;
-const mixpanelToken = process.env.REACT_APP_MIXPANEL_TOKEN;
+const useMixpanelAnalytics = Config.useMixpanelAnalytics;
+const mixpanelToken = Config.mixpanelToken;
 
 type AnalyticsContextProps = {
   mixpanel: MutableRefObject<MixPanel | undefined>;

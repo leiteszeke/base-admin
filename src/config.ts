@@ -27,17 +27,15 @@ const parseBoolean = (value: string | boolean | undefined): boolean => {
 };
 
 const Config = {
-  sessionKey: parseEmptyString(process.env.REACT_APP_SESSION_KEY),
+  sessionKey: parseEmptyString(process.env.VITE_SESSION_KEY),
 
-  apiUrl: parseEmptyString(process.env.REACT_APP_API_URL),
-  wsUrl: parseEmptyString(process.env.REACT_APP_WS_API_URL),
+  apiUrl: parseEmptyString(process.env.VITE_API_URL),
+  wsUrl: parseEmptyString(process.env.VITE_WS_API_URL),
 
-  useMixpanelAnalytics: parseBoolean(
-    process.env.REACT_APP_USE_MIXPANEL_ANALYITCS
-  ),
-  mixpanelToken: parseString(process.env.REACT_APP_MIXPANEL_TOKEN),
+  useMixpanelAnalytics: parseBoolean(process.env.VITE_USE_MIXPANEL_ANALYITCS),
+  mixpanelToken: parseString(process.env.VITE_MIXPANEL_TOKEN),
 
-  socketEnabled: parseBoolean(process.env.REACT_APP_SOCKET_ENABLED),
+  socketEnabled: parseBoolean(process.env.VITE_SOCKET_ENABLED),
 
   env: parseString(process.env.NODE_ENV),
   publicUrl: parseString(process.env.PUBLIC_URL),

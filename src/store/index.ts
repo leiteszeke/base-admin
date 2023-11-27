@@ -1,11 +1,10 @@
-import create from "zustand";
+import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
-import createVanilla from "zustand/vanilla";
+import { createStore } from "zustand/vanilla";
 import { State, Set, GenericState } from "./store.types";
 import { layoutState } from "./layout";
 import { usersInitialState, userStore } from "./users";
-
-const Storage = localStorage;
+import Config from "src/config";
 
 export const genericState = (set: Set<GenericState>): GenericState => ({
   resetStore: () =>
@@ -22,8 +21,7 @@ const storeObject = (set: Set<State>): State => ({
 });
 
 const storeConfig = {
-  name: process.env.REACT_APP_STORE_KEY ?? "",
-  getStorage: () => Storage,
+  name: Config.sessionKey,
 };
 
 export const useAdminStore = create<
@@ -40,7 +38,7 @@ export const useAdminStore = create<
   )
 );
 
-export const AdminStore = createVanilla<
+export const AdminStore = createStore<
   State,
   [["zustand/devtools", never], ["zustand/persist", State]]
 >(
