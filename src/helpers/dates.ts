@@ -1,10 +1,6 @@
-import {
-  format as dateFnsFormat,
-  add as dateFnsAdd,
-  sub as dateFnsSub,
-  add,
-} from "date-fns";
-import { format as dateFnsTz } from "date-fns-tz";
+import { add as dateFnsAdd } from "date-fns/add";
+import { format as dateFnsFormat } from "date-fns/format";
+import { sub as dateFnsSub } from "date-fns/sub";
 import { es } from "date-fns/locale";
 import { Generic } from "src/types";
 
@@ -28,7 +24,7 @@ export const dateFormat = (
 
   if (typeof mappedDate === "string") {
     if (timeZone) {
-      return dateFnsTz(new Date(date), formatStr, { locale: es, timeZone });
+      return dateFnsFormat(new Date(date), formatStr, { locale: es });
     }
 
     const mappedDate = add
@@ -41,7 +37,7 @@ export const dateFormat = (
   }
 
   if (timeZone) {
-    return dateFnsTz(mappedDate, formatStr, { locale: es, timeZone });
+    return dateFnsFormat(mappedDate, formatStr, { locale: es });
   }
 
   const innerDate = add
@@ -57,7 +53,7 @@ export const getStartAndEnd = (
   dateFrom: Date | string,
   dateTo?: Date | string
 ) => {
-  const today = add(new Date(), { days: 1 });
+  const today = dateFnsAdd(new Date(), { days: 1 });
 
   return {
     dateFrom: `${dateFormat(dateFrom, "yyyy-MM-dd")} 03:00:00`,

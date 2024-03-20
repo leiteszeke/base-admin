@@ -2,7 +2,7 @@ import Api from "src/api";
 import PaginatedTable from "src/components/PaginatedTable";
 import { User } from "src/types";
 import { CTableDataCell } from "@coreui/react-pro";
-import { format } from "date-fns";
+import { format } from "date-fns/format";
 
 const List = () => {
   return (
